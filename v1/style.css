@@ -1,0 +1,37 @@
+body {
+    background-color: black;
+}
+
+#card {
+    width: 580px;
+    aspect-ratio: 2/3;
+    border: 0.25em solid rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+    /* hides content that flows over the border */
+}
+
+#card>img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: url(#noise);
+    /* controls the noise filter created in HTML */
+    transition-duration: 800ms;
+}
+
+/* BUGFIX NEEDED: Need to let the pulse finish even when not hovering; the zoom 'jumps back' when the cursor exits the image */
+#card:hover>img {
+    animation: pulse 800ms ease-in-out;
+}
+
+@keyframes pulse {
+
+    from,
+    to {
+        scale: 1;
+    }
+
+    50% {
+        scale: 1.08;
+    }
+}
